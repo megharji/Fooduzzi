@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooduzzi</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="icon" href="https://i.pinimg.com/564x/f6/fb/3b/f6fb3b526b001b4a42f059d3fcb18153.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+   
+
+        <nav>
+            <h1><i class="ri-menu-line"></i></h1>
+           
+            <ul>
+                <div class="dashboard">
+                    <div class="dashboard1">
+                        <%if(admin.image=== "https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE="){%>
+                            <div class="image"><img src="<%=admin.image%>" alt=""></div>
+                        <%}else{%>
+    
+                            <div class="image"><img src="/uploads/<%=admin.image%>" alt=""></div>          
+                        <%}%>         
+                        <h1><%= admin.username %></h1>
+                        
+                    </div>
+                    <div class="dashboard2">
+                        <a href="/"><i class="ri-home-fill"></i> Home</a>
+                        <a href="/about"><i class="ri-chat-1-fill"></i> About Us</a>
+                        <a href="/createrecipe"><i class="ri-file-list-2-fill"></i> Create Recipe</a>
+                        <a href="/reset"><i class="ri-refresh-fill"></i> Reset Password</a>
+                        <a href="/signout"><i class="ri-login-box-fill"></i> Signout</a>
+                       
+                    </div>
+                   
+                </div>
+            </ul>
+            
+        </nav>
+
+    
+
+    <div class="pg1">
+        <h2>Search for Recipes</h2>
+            <form class="form" action="/profilefilter">
+                <div class="pg1main">
+
+                    <select class="input"  name="key" id="">
+                        <option value="filter">Select the filter</option>
+                        <option value="categories">Categories</option>               
+                        <option value="title">Title</option>
+                        <option value="ingredients">Ingredients</option>
+                    </select>
+                    <input class="input" type="text" name="value" placeholder="Enter search term" />
+                </div>
+                <div class="buttons">
+                    <button>Search</button>
+                    <a href="/profile">Clear</a>
+                </div>
+                
+
+            </form>
+    </div>
+        
+    
+    <div class="pg2">
+        <h1>Explore Recipes</h1>
+        <div class="pg2main">
+            
+            <% if(recipes.length === 0){%>
+                <h1 >You haven't created any recipe</h1>
+            <%}%>
+
+            <% recipes.forEach(function(rec, idx){%>
+            <div class="card" >
+                <div class="card-details">
+                    <img src="/uploads/<%=rec.image%>" alt="">
+                    <div class="card-details1">
+                        <h1 class="text-title">
+                            <%= rec.title %> 
+                        </h1>
+                        <h2><%= rec.categories %> </h2>
+                        <div class="card-details2">
+
+                            <a href="/delete/<%= rec._id %>">Delete</a>
+                            <a href="/update/<%= rec._id %>">Update</a>
+
+    
+                        </div>
+                    </div>
+
+                
+
+                </div>
+                <a class="card-button" href="/showrecipe/<%= rec._id%>">Show Recipe</a>
+
+                
+            
+
+            </div>
+
+            <%})%>  
+            
+        </div>
+
+    </div>
+
+
+
+        
+       
+        
+        
+
+        
+    
+
+   <script>
+
+
+
+
+
+        var dashboard =  document.querySelector(".dashboard")
+        var icon =  document.querySelector("h1")
+        var check = 0
+
+        icon.addEventListener("click", function(){
+            if(check == 0){
+                dashboard.style.display = "flex"
+                icon.innerHTML =`<i class="ri-close-fill"></i>`                
+                check = 1
+            }else{
+                dashboard.style.display = "none"
+                icon.innerHTML =`<i class="ri-menu-line"></i>`
+                check = 0
+            }
+            
+        })
+
+   </script>
+
+</body>
+</html>

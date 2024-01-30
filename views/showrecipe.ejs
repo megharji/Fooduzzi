@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooduzzi</title>
+    <link rel="stylesheet" href="/stylesheets/showrecipe.css">
+    <link rel="icon" href="https://i.pinimg.com/564x/f6/fb/3b/f6fb3b526b001b4a42f059d3fcb18153.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    
+
+        
+        <nav class="navbar">
+        
+            <ul class="nav-list">
+                <% if(!admin) { %>
+                    
+                        <a href="/"><i class="ri-home-fill"></i> Home</a>
+                        <a href="/about"><i class="ri-chat-1-fill"></i> About Us</a>
+                        <a href="/login"><i class="ri-login-box-line"></i> Login</a>
+                    
+                    <% } else { %>
+    
+                            <a href="/"><i class="ri-home-fill"></i> Home</a>
+                            <a href="/about"><i class="ri-chat-1-fill"></i> About Us</a>
+                            <a href="/profile"><i class="ri-profile-fill"></i> Profile</a>
+                            <a href="/createrecipe"><i class="ri-file-list-2-fill"></i> Create Recipe</a>
+    
+                    
+                        </div>        
+                    <% }%>
+    
+            </ul>
+        </nav>
+        <div class="container">
+            <img src="/uploads/<%=user1.image%>" alt="">
+            <h5>By: <%= user1.user.username%></h5>
+
+            <center><h1>Ingredients:</h1></center>
+            <p><%= user1.ingredients%></p>
+            <h1>Steps:</h1>
+            <h3><%= user1.steps%></h3>
+           
+        </div>
+       
+    
+       
+
+ 
+    
+
+</body>
+</html>

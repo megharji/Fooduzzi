@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooduzzi</title>
+    <link rel="stylesheet" href="/stylesheets/createrecipe.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="https://i.pinimg.com/564x/f6/fb/3b/f6fb3b526b001b4a42f059d3fcb18153.jpg">
+    
+</head>
+<body>
+    <div class="main3">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <a href="/"><i class="ri-home-fill"></i> Home</a>
+                <a href="/profile"><i class="ri-profile-fill"></i> Profile</a>
+                
+            </ul>
+        </nav>
+    
+        
+        <div class="container">
+            <h1>Create Recipe</h1>
+    
+            <form action="/createrecipe" method="POST">
+                
+                <a href="/createimage">Add Recipe Image</a>
+        
+                <label for="title">Title:</label>
+                <input type="text" name="title" placeholder="Title" required>
+        
+                <label for="ingredients">Ingredients:</label>
+                <textarea name="ingredients" rows="4" placeholder="Ingredients" required></textarea>
+        
+                <label for="steps">Steps:</label>
+                <textarea name="steps" rows="4" placeholder="Steps" required></textarea>
+        
+                <label for="categories">Category:</label>
+                <select name="categories">
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                    <option value="Desserts">Dessert</option>
+                    <option value="Drinks">Drinks</option>
+                </select>
+        
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+   
+
+
+   
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooduzzi</title>
+    <link rel="stylesheet" href="/stylesheets/update.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="https://i.pinimg.com/564x/f6/fb/3b/f6fb3b526b001b4a42f059d3fcb18153.jpg">
+    
+</head>
+<body>
+
+    <div class="main3">
+
+    
+        <nav class="navbar">
+                
+            <ul class="nav-list">
+                <a href="/"><i class="ri-home-fill"></i> Home</a>
+                <a href="/profile"><i class="ri-profile-fill"></i> Profile</a>
+                
+            </ul>
+        </nav>
+
+        
+
+        <div class="container">
+            <h1>Update Recipe</h1>
+
+            <form action="/update/<%=user._id %>" method="POST">
+                <label for="title">Title:</label>
+                <input class="input" type="text" name="title" placeholder="Title" value="<%= user.title%>">
+                <label for="ingredients">Ingredients:</label>
+                <textarea  name="ingredients" rows="4" placeholder="ingredients" ><%= user.ingredients%></textarea>
+                <label for="steps">Steps:</label>
+                <textarea name="steps" rows="4" placeholder="steps" ><%= user.steps%></textarea>
+                <label for="categories">Category:</label>
+                <select name="categories"  value="<%= user.categories%>">
+                    <option <%=  user.categories === "veg" ? "selected" : "" %>value="Veg">Veg</option>
+                    <option <%= user.categories==="Non-Veg" ?  "selected" : ""%> value="Non-Veg">Non Veg</option>
+                    <option <%= user.categories==="Desserts" ?  "selected" : ""%> value="Desserts">Dessert</option>
+                    <option <%= user.categories==="Drinks" ?  "selected" : ""%> value="Drinks">Drinks</option>
+                </select>
+            
+                <button>Update</button>
+        
+            </form>
+        </div>
+
+
+</div>
+
+</body>
+</html>
