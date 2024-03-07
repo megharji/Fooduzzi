@@ -120,9 +120,8 @@ router.get("/signout", isLoggedIn, function (req, res, next) {
 });
 
 router.get('/delete/:id', isLoggedIn,async function(req, res){
-  try {
-    
-    const recipeIndex = await req.user.recipes.findIndex((rec)=>rec._id.toString() === req.params.id);
+  try { 
+    const recipeIndex = await req.user.recipes.findIndex((rec)=>rec._id.toString() === req.params.id);  // await req.user.recipes.findIndex((rec) => rec._id.toString() === req.params.id); This line finds the index of a recipe within the recipes array of the logged-in user (req.user). It iterates through each recipe in the array and compares the string representation of its _id property with the _id parameter received in the request (req.params.id). It uses findIndex to find the index of the recipe that matches the given ID.The found index is stored in the variable recipeIndex.
     req.user.recipes.splice(recipeIndex, 1);
     await req.user.save();
 

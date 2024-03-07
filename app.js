@@ -15,8 +15,6 @@ var app = express();
 
 require("./models/config");
 
-
-
 const passport = require("passport");
 const session = require("express-session");
 
