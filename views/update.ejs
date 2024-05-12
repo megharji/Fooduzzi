@@ -27,7 +27,6 @@
 
         <div class="container">
             <h1>Update Recipe</h1>
-
             <form action="/update/<%=user._id %>" method="POST">
                 <label for="title">Title:</label>
                 <input class="input" type="text" name="title" placeholder="Title" value="<%= user.title%>">
@@ -42,7 +41,6 @@
                     <option <%= user.categories==="Desserts" ?  "selected" : ""%> value="Desserts">Dessert</option>
                     <option <%= user.categories==="Drinks" ?  "selected" : ""%> value="Drinks">Drinks</option>
                 </select>
-            
                 <button>Update</button>
         
             </form>

@@ -20,7 +20,7 @@ router.get('/', async function(req, res, next) {
   res.render('index', { recipes: allRecipes, admin: req.user, file: req.file });
 } catch (error) {
   console.error(error);
-  
+ 
 }
   
 });

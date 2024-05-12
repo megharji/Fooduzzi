@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
-mongoose.connect("mongodb://127.0.0.1:27017/Fooduzzi")
+mongoose.connect(process.env.MONGODB_URL)
+
         .then(()=> console.log("DB connected"))
         .catch((err)=> console.log(err.message))
